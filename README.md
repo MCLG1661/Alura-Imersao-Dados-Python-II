@@ -83,7 +83,7 @@ Este projeto consolidou conhecimentos em:
 
 ## 🙏 Agradecimentos
 
-- Aos professores e professoras da Alura, Gulherme Lima, Vinícius Caridá, Marceell Almeida e Valquíria Alencar pela excelente imersão
+- Aos professores e professoras da Alura : Gulherme Lima, Vinícius Caridá, Marcell Almeida e Valquíria Alencar pela excelente imersão
 - A Comunidade Python Brasil
 - A Todos os mantenedores das bibliotecas utilizadas
 
