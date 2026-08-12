@@ -89,10 +89,15 @@ em uma única aplicação.
 ## 🛠️ Tecnologias
 
 **Python** - Desenvolvimento da aplicação e análise
+
 **Pandas** - Manipulação e tratamento dos dados 
+
 **NumPy** - Operações numéricas
+
 **Streamlit** - Interface e construção do Data App 
+
 **Plotly** - Visualizações interativas 
+
 **CSV** - Fonte de dados do projeto 
 
 ---
