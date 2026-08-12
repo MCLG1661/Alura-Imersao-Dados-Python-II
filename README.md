@@ -88,14 +88,12 @@ em uma única aplicação.
 
 ## 🛠️ Tecnologias
 
-| Tecnologia | Aplicação |
-|---|---|
-| **Python** | Desenvolvimento da aplicação e análise |
-| **Pandas** | Manipulação e tratamento dos dados |
-| **NumPy** | Operações numéricas |
-| **Streamlit** | Interface e construção do Data App |
-| **Plotly** | Visualizações interativas |
-| **CSV** | Fonte de dados do projeto |
+**Python** - Desenvolvimento da aplicação e análise
+**Pandas** - Manipulação e tratamento dos dados 
+**NumPy** - Operações numéricas
+**Streamlit** - Interface e construção do Data App 
+**Plotly** - Visualizações interativas 
+**CSV** - Fonte de dados do projeto 
 
 ---
 
@@ -167,8 +165,6 @@ em Python de uma experiência de utilização voltada ao usuário final.
 
 ---
 
-
-
 ## 🙏 Agradecimentos
 
 - A Alura e aos professores e professoras : Gulherme Lima, Vinícius Caridá, Marcell Almeida e Valquíria Alencar pela excelente imersão
@@ -177,9 +173,16 @@ em Python de uma experiência de utilização voltada ao usuário final.
 
 ----
 
+## 👨‍💻 Autor
 
+**Marcus Guedes**
 
-🌟 " O conhecimento é a única coisa que ninguém pode tirar de você. Explore, aprenda e compartilhe !"
+Marketing | Data Science | Inteligência Artificial | Gestão de Projetos
 
-🛠️ Desenvolvido com código limpo !
+GitHub: MCLG1661  
 
+LinkedIn: Marcus Guedes
+
+---
+
+📊 **Transformando dados em experiências analíticas interativas.**
