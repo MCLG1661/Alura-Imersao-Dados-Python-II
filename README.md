@@ -1,6 +1,6 @@
 # 📊 Dashboard de Análise de Salários na Área de Dados
 
-> Data App interativo desenvolvido com **Python, Pandas, Streamlit e Plotly** para explorar salários, senioridade, contratos, trabalho remoto e distribuição geográfica de profissionais da área de Dados.
+> Data App interativo desenvolvido com **Python, Pandas, Streamlit e Plotly** para explorar salários, senioridade, contratos, modalidades de trabalho e distribuição geográfica de profissionais da área de Dados.
 
 ![Python](https://img.shields.io/badge/Python-Data%20Analytics-3776AB?logo=python&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?logo=pandas&logoColor=white)
@@ -40,18 +40,18 @@ Construir uma aplicação capaz de transformar dados tabulares em uma interface 
 
 O projeto trabalha conceitos como:
 
-- Data Analytics
-- Data Visualization
-- Pandas
-- Streamlit
-- Plotly
-- DataFrames
-- KPIs
-- filtros
-- agregações
-- dashboards
-- Data Apps
-- UX aplicada a dados
+- Data Analytics;
+- Data Visualization;
+- Pandas;
+- Streamlit;
+- Plotly;
+- DataFrames;
+- KPIs;
+- filtros;
+- agregações;
+- dashboards;
+- Data Apps;
+- UX aplicada a dados.
 
 ---
 
@@ -102,19 +102,23 @@ Exploração pelo Usuário
 
 A barra lateral permite selecionar diferentes dimensões do dataset:
 
-- Ano
-- Senioridade
-- Tipo de Contrato
-- Tamanho da Empresa
+```text
+Ano
+Senioridade
+Tipo de Contrato
+Tamanho da Empresa
+```
 
-Os filtros são aplicados simultaneamente ao DataFrame.
+Os filtros são aplicados simultaneamente ao DataFrame:
 
+```python
 df_filtrado = df[
     (df["ano"].isin(anos_selecionados))
     & (df["senioridade"].isin(senioridades_selecionadas))
     & (df["contrato"].isin(contratos_selecionados))
     & (df["tamanho_empresa"].isin(tamanhos_selecionados))
 ]
+```
 
 Isso permite ao usuário alterar dinamicamente o recorte da análise.
 
@@ -124,303 +128,367 @@ Isso permite ao usuário alterar dinamicamente o recorte da análise.
 
 O dashboard apresenta quatro indicadores principais:
 
-- Salário Médio
-- Salário Máximo
-- Total de Registros
-- Cargo Mais Frequente
+```text
+Salário Médio
+Salário Máximo
+Total de Registros
+Cargo Mais Frequente
+```
 
-Essas métricas são recalculadas de acordo com os filtros aplicados.
+As métricas são recalculadas automaticamente de acordo com os filtros aplicados.
 
-Caso nenhuma observação corresponda aos filtros, o sistema evita erros e apresenta valores padrão.
+Caso nenhuma observação corresponda à combinação selecionada, a aplicação trata o DataFrame vazio e apresenta valores padrão, evitando falhas na interface.
 
 ---
 
 ## 📊 Visualizações
 
-1. Top 10 cargos por salário médio
+### 1. Top 10 cargos por salário médio
 
-Gráfico de barras horizontais com os cargos de maior média salarial.
+Gráfico de barras horizontais que apresenta os dez cargos com maior média salarial dentro do recorte selecionado.
 
-Processo:
-
+```text
 DataFrame Filtrado
-      ↓
+        ↓
 GroupBy por Cargo
-      ↓
+        ↓
 Média Salarial
-      ↓
+        ↓
 Top 10
-      ↓
+        ↓
 Plotly Bar Chart
+```
 
-2. Distribuição dos salários
+---
 
-Histograma com a distribuição dos salários anuais em USD.
+### 2. Distribuição dos salários
 
-Essa visualização permite observar:
+Histograma que representa a distribuição dos salários anuais em USD.
 
-concentração;
-dispersão;
-faixas salariais;
-assimetrias;
-valores extremos.
+A visualização ajuda a observar:
 
-3. Modalidade de trabalho
+- concentração;
+- dispersão;
+- faixas salariais;
+- assimetrias;
+- valores extremos.
 
-Gráfico de rosca com a distribuição entre os tipos de trabalho presentes no dataset.
+---
 
-A análise utiliza:
+### 3. Modalidade de trabalho
 
-value_counts()
+Gráfico de rosca que apresenta a distribuição das modalidades de trabalho presentes no dataset.
 
-para calcular a frequência de cada modalidade.
+A análise utiliza a contagem das ocorrências para calcular a participação de cada modalidade.
 
-4. Salário médio de Data Scientist por país
+---
 
-Mapa coroplético que apresenta o salário médio de profissionais classificados como Data Scientist por país.
+### 4. Salário médio de Data Scientist por país
 
-Fluxo:
+Mapa coroplético que apresenta o salário médio de profissionais classificados como **Data Scientist** por país.
 
+```text
 DataFrame
-   ↓
+    ↓
 Filtro: Data Scientist
-   ↓
+    ↓
 GroupBy por País
-   ↓
+    ↓
 Média Salarial
-   ↓
+    ↓
 Choropleth
+```
 
-Caso não existam registros de Data Scientist no recorte selecionado, a aplicação apresenta uma mensagem informativa em vez de tentar gerar um gráfico vazio.
+Caso não existam registros de Data Scientist para os filtros selecionados, a aplicação apresenta uma mensagem informativa em vez de tentar gerar um gráfico vazio.
 
 ---
 
 ## 🗂️ Dados Detalhados
 
-Além dos KPIs e gráficos, o dashboard apresenta o DataFrame filtrado.
+Além dos KPIs e gráficos, o dashboard apresenta o DataFrame resultante dos filtros.
 
-Isso permite ao usuário observar diretamente os registros que sustentam as visualizações.
+Isso permite ao usuário visualizar diretamente os registros que sustentam as métricas e visualizações apresentadas.
+
+---
 
 ## ⚙️ Carregamento dos Dados
 
 O projeto utiliza o dataset armazenado no próprio repositório:
 
+```text
 dados-imersao-final.csv
+```
 
 O carregamento utiliza cache do Streamlit:
 
+```python
 @st.cache_data
 def carregar_dados():
     return pd.read_csv("dados-imersao-final.csv")
 
-Isso evita leituras repetidas do arquivo durante interações com a aplicação.
+df = carregar_dados()
+```
+
+O uso de `st.cache_data` evita a leitura desnecessária do arquivo CSV a cada interação com os componentes da aplicação.
 
 ---
 
 ## 🛡️ Tratamento de Edge Cases
 
-A aplicação contempla cenários em que os filtros retornam zero registros.
+A aplicação contempla cenários em que a combinação dos filtros retorna zero registros.
 
 Nesse caso:
 
-Salário médio → 0
-Salário máximo → 0
-Total de registros → 0
-Cargo mais frequente → N/A
+```text
+Salário médio         → 0
+Salário máximo        → 0
+Total de registros    → 0
+Cargo mais frequente  → N/A
+```
 
-As visualizações também são protegidas contra DataFrames vazios.
+Os gráficos e a tabela também verificam se existem dados antes da renderização.
 
-Isso evita erros durante a navegação e melhora a experiência do usuário.
+Essa abordagem evita erros durante a navegação e melhora a experiência do usuário.
 
 ---
 
 ## 🧠 Arquitetura da Aplicação
 
-```
-
-┌─────────────────────┐
-│       CSV           │
-│ Dados Salariais     │
-└─────────┬───────────┘
-          │
-          ▼
-┌─────────────────────┐
-│       Pandas        │
-│ DataFrame / Filtros │
-└─────────┬───────────┘
-          │
-          ▼
-┌─────────────────────┐
-│        KPIs         │
-│     Agregações      │
-└─────────┬───────────┘
-          │
-          ▼
-┌─────────────────────┐
-│       Plotly        │
-│ Visualizações       │
-└─────────┬───────────┘
-          │
-          ▼
-┌─────────────────────┐
-│      Streamlit      │
-│ Interface / Filtros │
-└─────────┬───────────┘
-          │
-          ▼
-┌─────────────────────┐
-│       Usuário       │
-│ Exploração Analítica│
-└─────────────────────┘
+```text
+┌─────────────────────────┐
+│       Dataset CSV       │
+│     Dados Salariais     │
+└────────────┬────────────┘
+             │
+             ▼
+┌─────────────────────────┐
+│         Pandas          │
+│ DataFrame + Tratamento  │
+└────────────┬────────────┘
+             │
+             ▼
+┌─────────────────────────┐
+│         Filtros         │
+│   Recorte dos Dados     │
+└────────────┬────────────┘
+             │
+             ▼
+┌─────────────────────────┐
+│    KPIs + Agregações    │
+│     Análise de Dados    │
+└────────────┬────────────┘
+             │
+             ▼
+┌─────────────────────────┐
+│         Plotly          │
+│ Visualizações Interativas│
+└────────────┬────────────┘
+             │
+             ▼
+┌─────────────────────────┐
+│       Streamlit         │
+│ Interface + Interação   │
+└────────────┬────────────┘
+             │
+             ▼
+┌─────────────────────────┐
+│        Usuário          │
+│ Exploração Analítica    │
+└─────────────────────────┘
 ```
 
 ---
 
 ## 🛠️ Tecnologias
 
-Tecnologia	Aplicação
-Python	Linguagem principal
-Pandas	Manipulação e análise dos dados
-Streamlit	Interface e construção do Data App
-Plotly	Visualizações interativas
-CSV	Fonte de dados
-Git	Versionamento
-GitHub	Repositório e documentação
+| Tecnologia | Aplicação |
+|---|---|
+| **Python** | Linguagem principal |
+| **Pandas** | Manipulação, filtragem e análise dos dados |
+| **Streamlit** | Interface e construção do Data App |
+| **Plotly** | Visualizações interativas |
+| **CSV** | Fonte de dados |
+| **Git** | Controle de versão |
+| **GitHub** | Repositório e documentação |
 
 ---
 
 ## 📂 Estrutura do Projeto
 
-```
-
+```text
 Alura-Imersao-Dados-Python-II/
 │
 ├── App.py
 ├── dados-imersao-final.csv
 ├── requirements.txt
 └── README.md
-
 ```
 
 ---
 
 ## ▶️ Como Executar
 
-1. Clone o repositório
+### 1. Clone o repositório
+
+```bash
 git clone https://github.com/MCLG1661/Alura-Imersao-Dados-Python-II.git
+```
 
-Entre no diretório:
+### 2. Entre no diretório
 
+```bash
 cd Alura-Imersao-Dados-Python-II
+```
 
-2. Crie um ambiente virtual
-Windows
+### 3. Crie um ambiente virtual
+
+#### Windows
+
+```bash
 python -m venv .venv
 .venv\Scripts\activate
-Linux / macOS
+```
+
+#### Linux / macOS
+
+```bash
 python3 -m venv .venv
 source .venv/bin/activate
+```
 
-3. Instale as dependências
+### 4. Instale as dependências
+
+```bash
 pip install -r requirements.txt
+```
 
-4. Execute a aplicação
+### 5. Execute a aplicação
+
+```bash
 streamlit run App.py
+```
 
-O Streamlit abrirá o dashboard no navegador.
+O Streamlit iniciará a aplicação e disponibilizará o dashboard no navegador.
+
+---
+
+## 📦 Dependências
+
+O projeto utiliza:
+
+```text
+pandas==2.2.3
+streamlit==1.44.1
+plotly==5.24.1
+```
 
 ---
 
 ## 💡 Competências Demonstradas
 
-- Data Analytics :
-análise exploratória;
-indicadores;
-ag
-regações;
-filtros;
-análise salarial;
-interpretação de dados.
+### Data Analytics
 
-- Python :
-Pandas;
-DataFrames;
-GroupBy;
-filtros booleanos;
-funções;
-cache;
-tratamento de dados vazios.
+- análise exploratória;
+- criação de indicadores;
+- agregações;
+- filtros;
+- análise salarial;
+- interpretação de dados.
 
-- Data Visualization :
-gráficos de barras;
-histogramas;
-gráficos de rosca;
-mapas coropléticos;
-Plotly.
+### Python
 
-- Data Apps :
-Streamlit;
-sidebar;
-multiselect;
-métricas;
-componentes interativos;
-DataFrames;
-UX analítica.
+- Pandas;
+- DataFrames;
+- `groupby`;
+- filtros booleanos;
+- funções;
+- cache;
+- tratamento de DataFrames vazios.
 
-- Engenharia :
-Git;
-GitHub;
-requirements.txt;
-organização de projeto;
-documentação técnica.
+### Data Visualization
+
+- gráficos de barras;
+- histogramas;
+- gráficos de rosca;
+- mapas coropléticos;
+- visualizações interativas com Plotly.
+
+### Data Apps
+
+- Streamlit;
+- sidebar;
+- multiselect;
+- métricas;
+- componentes interativos;
+- apresentação de DataFrames;
+- UX aplicada à análise de dados.
+
+### Engenharia
+
+- Git;
+- GitHub;
+- gerenciamento de dependências;
+- organização de projeto;
+- documentação técnica.
 
 ---
 
 ## 💼 Possíveis Aplicações
 
-Embora o dataset seja salarial, a arquitetura do projeto pode ser adaptada para diferentes contextos.
+Embora o projeto utilize dados salariais, a mesma arquitetura pode ser adaptada para diferentes cenários de negócio.
 
+### Marketing Analytics
+
+```text
+Campanhas
+    ↓
+Filtros
+    ↓
+KPIs
+    ↓
+Visualizações
+    ↓
+Dashboard
 ```
 
-Marketing Analytics
-Campanhas
-   ↓
-Filtros
-   ↓
-KPIs
-   ↓
-Visualizações
-   ↓
-Dashboard
-Vendas
-Clientes
-   ↓
-Receita
-   ↓
-Produtos
-   ↓
-Regiões
-   ↓
-Data App
-RH / People Analytics
-Profissionais
-   ↓
-Senioridade
-   ↓
-Salários
-   ↓
-Localização
-   ↓
-Indicadores
-Operações
-Dados Operacionais
-   ↓
-Indicadores
-   ↓
-Filtros
-   ↓
-Monitoramento
+### Vendas
 
+```text
+Clientes + Produtos + Receita
+              ↓
+            Pandas
+              ↓
+             KPIs
+              ↓
+          Dashboard
+```
+
+### People Analytics
+
+```text
+Profissionais
+      ↓
+Senioridade
+      ↓
+Salários
+      ↓
+Localização
+      ↓
+Indicadores
+```
+
+### Operações
+
+```text
+Dados Operacionais
+        ↓
+Indicadores
+        ↓
+Filtros
+        ↓
+Visualizações
+        ↓
+Monitoramento
 ```
 
 ---
@@ -429,22 +497,34 @@ Monitoramento
 
 O projeto pode evoluir com:
 
-- Deploy público no Streamlit Community Cloud;
-- Filtros adicionais;
-- Comparação entre países;
-- Análise temporal;
-- Boxplots por senioridade;
-- Métricas de mediana;
-- Análise por tecnologia;
-- Exportação de dados filtrados;
-- Testes automatizados;
-- Modularização do código;
-- Configuração externa;
-- Logging;
-- Cache avançado;
-- Conexão com banco de dados;
-- API;
-- Power BI como camada complementar.
+- deploy público;
+- filtros adicionais;
+- comparação salarial entre países;
+- análise temporal;
+- salário mediano;
+- boxplots por senioridade;
+- análise por cargo;
+- exportação dos dados filtrados;
+- testes automatizados;
+- modularização da aplicação;
+- logging;
+- conexão com banco de dados;
+- consumo de API;
+- Power BI como camada analítica complementar.
+
+Uma evolução interessante seria separar a aplicação em diferentes camadas:
+
+```text
+Data Source
+    ↓
+Data Processing
+    ↓
+Analytics
+    ↓
+Visualization
+    ↓
+User Interface
+```
 
 ---
 
@@ -454,45 +534,48 @@ Este projeto possui finalidade educacional e demonstrativa.
 
 A aplicação:
 
-utiliza um dataset específico;
-não realiza previsão salarial;
-não representa necessariamente todo o mercado de trabalho em Dados;
-não possui backend;
-não possui autenticação;
-não possui banco de dados;
-não implementa Machine Learning;
-depende da qualidade e cobertura do dataset utilizado.
+- utiliza um dataset específico;
+- não realiza previsão salarial;
+- não representa necessariamente todo o mercado de trabalho em Dados;
+- não implementa Machine Learning;
+- não possui autenticação;
+- não possui banco de dados;
+- depende da qualidade e cobertura do dataset utilizado.
 
-O foco está na construção de uma experiência de Data Analytics interativa.
+O foco do projeto está na construção de uma experiência de **Data Analytics interativa com Python**.
 
 ---
 
 ## 🎓 Contexto Acadêmico
 
-Projeto desenvolvido durante a Imersão Python com Dados II — Alura.
+Projeto desenvolvido durante a **Imersão Python com Dados II — Alura**.
 
-A imersão permitiu aplicar conceitos de análise de dados, manipulação de DataFrames e visualização na construção de uma aplicação interativa voltada ao usuário final.
+A imersão permitiu aplicar conceitos de análise e manipulação de dados na construção de uma aplicação interativa, aproximando o processamento realizado em Python de uma experiência voltada ao usuário final.
 
 ---
 
 ## 🙏 Agradecimentos
 
-Alura
-Guilherme Lima
-Vinícius Caridá
-Marcell Almeida
-Valquíria Alencar
-Comunidade Python
+Agradecimentos à **Alura** e aos professores:
+
+- Guilherme Lima
+- Vinícius Caridá
+- Marcell Almeida
+- Valquíria Alencar
+
+E à comunidade Python e aos mantenedores das bibliotecas utilizadas no projeto.
 
 ---
 
 ## 👨‍💻 Autor
 
-Marcus Guedes
+**Marcus Guedes**
 
 Marketing | Data Science | Inteligência Artificial | Gestão de Projetos
 
-GitHub: MCLG1661
-LinkedIn: Marcus Guedes
+- **GitHub:** [MCLG1661](https://github.com/MCLG1661)
+- **LinkedIn:** [Marcus Guedes](https://www.linkedin.com/in/marcusguedes/)
 
-📊 Transformando dados em experiências analíticas interativas.
+---
+
+📊 **Transformando dados em experiências analíticas interativas.**
