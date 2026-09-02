@@ -236,6 +236,8 @@ Isso evita erros durante a navegação e melhora a experiência do usuário.
 
 ## 🧠 Arquitetura da Aplicação
 
+```
+
 ┌─────────────────────┐
 │       CSV           │
 │ Dados Salariais     │
@@ -270,6 +272,7 @@ Isso evita erros durante a navegação e melhora a experiência do usuário.
 │       Usuário       │
 │ Exploração Analítica│
 └─────────────────────┘
+```
 
 ---
 
@@ -288,6 +291,8 @@ GitHub	Repositório e documentação
 
 ## 📂 Estrutura do Projeto
 
+```
+
 Alura-Imersao-Dados-Python-II/
 │
 ├── App.py
@@ -295,9 +300,12 @@ Alura-Imersao-Dados-Python-II/
 ├── requirements.txt
 └── README.md
 
+```
+
 ---
 
 ## ▶️ Como Executar
+
 1. Clone o repositório
 git clone https://github.com/MCLG1661/Alura-Imersao-Dados-Python-II.git
 
