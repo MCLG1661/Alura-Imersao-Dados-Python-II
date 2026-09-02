@@ -102,10 +102,10 @@ Exploração pelo Usuário
 
 A barra lateral permite selecionar diferentes dimensões do dataset:
 
-Ano
-Senioridade
-Tipo de Contrato
-Tamanho da Empresa
+- Ano
+- Senioridade
+- Tipo de Contrato
+- Tamanho da Empresa
 
 Os filtros são aplicados simultaneamente ao DataFrame.
 
@@ -124,10 +124,10 @@ Isso permite ao usuário alterar dinamicamente o recorte da análise.
 
 O dashboard apresenta quatro indicadores principais:
 
-Salário Médio
-Salário Máximo
-Total de Registros
-Cargo Mais Frequente
+- Salário Médio
+- Salário Máximo
+- Total de Registros
+- Cargo Mais Frequente
 
 Essas métricas são recalculadas de acordo com os filtros aplicados.
 
@@ -312,6 +312,7 @@ git clone https://github.com/MCLG1661/Alura-Imersao-Dados-Python-II.git
 Entre no diretório:
 
 cd Alura-Imersao-Dados-Python-II
+
 2. Crie um ambiente virtual
 Windows
 python -m venv .venv
@@ -319,8 +320,10 @@ python -m venv .venv
 Linux / macOS
 python3 -m venv .venv
 source .venv/bin/activate
+
 3. Instale as dependências
 pip install -r requirements.txt
+
 4. Execute a aplicação
 streamlit run App.py
 
@@ -330,14 +333,16 @@ O Streamlit abrirá o dashboard no navegador.
 
 ## 💡 Competências Demonstradas
 
-Data Analytics
+- Data Analytics
 análise exploratória;
 indicadores;
-agregações;
+ag
+regações;
 filtros;
 análise salarial;
 interpretação de dados.
-Python
+
+- Python
 Pandas;
 DataFrames;
 GroupBy;
@@ -345,13 +350,15 @@ filtros booleanos;
 funções;
 cache;
 tratamento de dados vazios.
-Data Visualization
+
+- Data Visualization
 gráficos de barras;
 histogramas;
 gráficos de rosca;
 mapas coropléticos;
 Plotly.
-Data Apps
+
+- Data Apps
 Streamlit;
 sidebar;
 multiselect;
@@ -359,7 +366,8 @@ métricas;
 componentes interativos;
 DataFrames;
 UX analítica.
-Engenharia
+
+- Engenharia
 Git;
 GitHub;
 requirements.txt;
