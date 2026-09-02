@@ -333,7 +333,7 @@ O Streamlit abrirá o dashboard no navegador.
 
 ## 💡 Competências Demonstradas
 
-- Data Analytics
+- Data Analytics :
 análise exploratória;
 indicadores;
 ag
@@ -342,7 +342,7 @@ filtros;
 análise salarial;
 interpretação de dados.
 
-- Python
+- Python :
 Pandas;
 DataFrames;
 GroupBy;
@@ -351,14 +351,14 @@ funções;
 cache;
 tratamento de dados vazios.
 
-- Data Visualization
+- Data Visualization :
 gráficos de barras;
 histogramas;
 gráficos de rosca;
 mapas coropléticos;
 Plotly.
 
-- Data Apps
+- Data Apps :
 Streamlit;
 sidebar;
 multiselect;
@@ -367,7 +367,7 @@ componentes interativos;
 DataFrames;
 UX analítica.
 
-- Engenharia
+- Engenharia :
 Git;
 GitHub;
 requirements.txt;
@@ -379,6 +379,8 @@ documentação técnica.
 ## 💼 Possíveis Aplicações
 
 Embora o dataset seja salarial, a arquitetura do projeto pode ser adaptada para diferentes contextos.
+
+```
 
 Marketing Analytics
 Campanhas
@@ -419,28 +421,30 @@ Filtros
    ↓
 Monitoramento
 
+```
+
 ---
 
 ## 🚀 Possíveis Evoluções
 
 O projeto pode evoluir com:
 
-deploy público no Streamlit Community Cloud;
-filtros adicionais;
-comparação entre países;
-análise temporal;
-boxplots por senioridade;
-métricas de mediana;
-análise por tecnologia;
-exportação de dados filtrados;
-testes automatizados;
-modularização do código;
-configuração externa;
-logging;
-cache avançado;
-conexão com banco de dados;
-API;
-Power BI como camada complementar.
+- Deploy público no Streamlit Community Cloud;
+- Filtros adicionais;
+- Comparação entre países;
+- Análise temporal;
+- Boxplots por senioridade;
+- Métricas de mediana;
+- Análise por tecnologia;
+- Exportação de dados filtrados;
+- Testes automatizados;
+- Modularização do código;
+- Configuração externa;
+- Logging;
+- Cache avançado;
+- Conexão com banco de dados;
+- API;
+- Power BI como camada complementar.
 
 ---
 
